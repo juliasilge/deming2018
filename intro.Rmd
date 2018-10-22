@@ -10,6 +10,7 @@ output:
       highlightStyle: github
       highlightLines: true
       countIncrementalSlides: false
+      ratio: "16:9"
     seal: false  
     includes:
       in_header: header.html
@@ -103,10 +104,11 @@ background-image: url(figs/tidytext_repo.png)
 background-size: 800px
 background-position: 50% 20%
 
-class: bottom
+class: bottom, right
 
-- .large[[https://github.com/juliasilge/tidytext](https://github.com/juliasilge/tidytext)]
-- .large[[http://tidytextmining.com/](http://tidytextmining.com/)]
+.large[[https://github.com/juliasilge/tidytext](https://github.com/juliasilge/tidytext)]
+
+.large[[http://tidytextmining.com/](http://tidytextmining.com/)]
 
 ---
 
@@ -195,7 +197,7 @@ tidy_book %>%
 ---
 
 background-image: url(figs/stop.gif)
-background-size: 400px
+background-size: 500px
 background-position: 50% 50%
 
 ## Stop words
@@ -248,7 +250,7 @@ tidy_book %>%
 
 ---
 
-```{r, echo=FALSE, fig.height=5.5}
+```{r, echo=FALSE, fig.height=4}
 tidy_book %>%
   anti_join(get_stopwords(source = "smart")) %>%
   count(word, sort = TRUE) %>%
@@ -353,7 +355,9 @@ tidy_book %>%
 
 ---
 
-```{r, echo=FALSE, fig.height=5.5}
+class: middle
+
+```{r, echo=FALSE, fig.height=4}
 tidy_book %>%
   inner_join(get_sentiments("bing")) %>%
   count(sentiment, word, sort = TRUE) %>%
@@ -454,7 +458,7 @@ book_words %>%
 
 ---
 
-```{r, echo=FALSE, fig.height=5.5}
+```{r, echo=FALSE, fig.height=4}
 book_words %>%
   group_by(title) %>%
   top_n(10) %>%
@@ -516,7 +520,13 @@ class: inverse
 ## What can you do with n-grams?
 
 - .large[tf-idf of n-grams]
+
+--
+
 - .large[network analysis]
+
+--
+
 - .large[negation]
 
 ---

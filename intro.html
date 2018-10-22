@@ -95,10 +95,11 @@ background-image: url(figs/tidytext_repo.png)
 background-size: 800px
 background-position: 50% 20%
 
-class: bottom
+class: bottom, right
 
-- .large[[https://github.com/juliasilge/tidytext](https://github.com/juliasilge/tidytext)]
-- .large[[http://tidytextmining.com/](http://tidytextmining.com/)]
+.large[[https://github.com/juliasilge/tidytext](https://github.com/juliasilge/tidytext)]
+
+.large[[http://tidytextmining.com/](http://tidytextmining.com/)]
 
 ---
 
@@ -270,7 +271,7 @@ tidy_book %&gt;%
 ---
 
 background-image: url(figs/stop.gif)
-background-size: 400px
+background-size: 500px
 background-position: 50% 50%
 
 ## Stop words
@@ -591,6 +592,8 @@ tidy_book %&gt;%
 
 ---
 
+class: middle
+
 ![](intro_files/figure-html/unnamed-chunk-21-1.png)&lt;!-- --&gt;
 
 ---
@@ -855,7 +858,13 @@ class: inverse
 ## What can you do with n-grams?
 
 - .large[tf-idf of n-grams]
+
+--
+
 - .large[network analysis]
+
+--
+
 - .large[negation]
 
 ---
@@ -892,7 +901,8 @@ Slides created with [**remark.js**](http://remarkjs.com/) and the R package [**x
 <script>var slideshow = remark.create({
 "highlightStyle": "github",
 "highlightLines": true,
-"countIncrementalSlides": false
+"countIncrementalSlides": false,
+"ratio": "16:9"
 });
 if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
   window.dispatchEvent(new Event('resize'));
