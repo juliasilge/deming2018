@@ -208,7 +208,7 @@ by_chapter
 library(tidytext)
 
 word_counts &lt;- by_chapter %&gt;%
-  unnest_tokens(word, text) %&gt;%
+* unnest_tokens(word, text) %&gt;%
   anti_join(get_stopwords(source = "smart")) %&gt;%
   count(document, word, sort = TRUE)
 
@@ -239,7 +239,7 @@ word_counts
 
 ```r
 words_sparse &lt;- word_counts %&gt;%
-  cast_sparse(document, word, n)
+* cast_sparse(document, word, n)
 
 class(words_sparse)
 ```
@@ -408,7 +408,8 @@ chapters_gamma
 
 ```r
 chapters_parsed &lt;- chapters_gamma %&gt;%
-  separate(document, c("title", "chapter"), sep = "_", convert = TRUE)
+  separate(document, c("title", "chapter"), 
+           sep = "_", convert = TRUE)
 
 chapters_parsed
 ```
@@ -573,7 +574,7 @@ books
 library(tidytext)
 
 tidy_books &lt;- books %&gt;%
-  unnest_tokens(word, text) %&gt;%
+* unnest_tokens(word, text) %&gt;%
   group_by(word) %&gt;%
   filter(n() &gt; 10) %&gt;%
   ungroup
@@ -608,7 +609,7 @@ tidy_books
 ```r
 sparse_words &lt;- tidy_books %&gt;%
   count(document, word, sort = TRUE) %&gt;%
-  cast_sparse(document, word, n)
+* cast_sparse(document, word, n)
 
 books_joined &lt;- data_frame(document = as.integer(rownames(sparse_words))) %&gt;%
   left_join(books %&gt;%
@@ -777,7 +778,7 @@ Let's talk about misclassifications. Which documents here were incorrectly predi
 
 ```r
 roc %&gt;%
-  filter(Probability &gt; .8, !Correct) %&gt;%
+* filter(Probability &gt; .8, !Correct) %&gt;%
   sample_n(10) %&gt;%
   inner_join(books %&gt;%
                select(document, text)) %&gt;%
@@ -809,7 +810,7 @@ Let's talk about misclassifications. Which documents here were incorrectly predi
 
 ```r
 roc %&gt;%
-  filter(Probability &lt; .2, Correct) %&gt;%
+* filter(Probability &lt; .2, Correct) %&gt;%
   sample_n(10) %&gt;%
   inner_join(books %&gt;%
                select(document, text)) %&gt;%
